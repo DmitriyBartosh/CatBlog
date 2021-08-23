@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Content from './component/content'
+import Menu from './component/menu'
+import { OffsetContect } from './component/context'
+
+import './style/style.scss'
+import './style/reset.scss'
 
 function App() {
+  const [offset, setOffset] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <OffsetContect.Provider value = {{ offset, setOffset }}>
+      <section className="container">
+        <Menu />
+        <Content />
+      </section>
+    </OffsetContect.Provider>
+  )
 }
 
 export default App;
