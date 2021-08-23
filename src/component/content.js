@@ -23,7 +23,7 @@ function Content() {
 
   return (
     <animated.div className="content" style={content}>
-      <animated.h1 style={contentTitle}>Ну приветики!<br />это мой <span>котячий</span> блог <span>Kate.Smidt!</span></animated.h1>
+      <animated.h1 style={contentTitle}>Ну приветики!<br />это мой <span>котячий</span> блог <span>Kate.Shmidt!</span></animated.h1>
       <div className="contentCats">
         {cats.map((cat, index) => {
           const { name, image } = cat;
