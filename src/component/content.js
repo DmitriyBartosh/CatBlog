@@ -21,6 +21,9 @@ function Content() {
     to: { x: progress * (width / 4) }
   })
 
+  const contentMobile = useSpring({
+    to: { filter: `brightness(${1 - progress / 4})` }
+  })
   const contentTitleMobile = useSpring({
     to: { y: progress * -(height / 4) }
   })
@@ -29,7 +32,7 @@ function Content() {
   })
 
   return (
-    <animated.div className="content" style={content}>
+    <animated.div className="content" style={width > 1024 ? content : contentMobile}>
       <animated.h1 style={width > 1024 ? contentTitle : contentTitleMobile}>Ну приветики!<br />это мой <span>котячий</span> блог <span>Kate.Shmidt!</span></animated.h1>
       <div className="contentCats">
         {cats.map((cat, index) => {
