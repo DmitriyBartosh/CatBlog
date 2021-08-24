@@ -7,6 +7,12 @@ h1 {
   font-size: 4vw;
   font-weight: 400;
   color: #333;
+  @media (max-width: 1024px) {
+    font-size: 3rem;
+  }
+  @media (max-width: 600px) {
+    font-size: 2rem;
+  }
   span {
     font-weight: 700;
     color: black;
@@ -27,13 +33,14 @@ body {
   font: inherit;
   user-select: none;
   font-family: "Oswald", sans-serif;
-  position: fixed;
-  overflow: hidden;
 }
 .container {
   position: relative;
   width: 100%;
   height: 100vh;
+  @media (max-width: 1024px) {
+    height: auto;
+  }
   .menu {
     position: fixed;
     left: 0;
@@ -49,22 +56,33 @@ body {
     will-change: width;
     overflow: hidden;
     z-index: 100;
+    touch-action: none;
+    user-select: none;
     @media (max-width: 1024px) {
       top: auto;
       right: 0;
       width: 100%;
-      height: 50px;
+      height: 60px;
+      will-change: height;
     }
     .fight {
       position: absolute;
       left: 10px;
       bottom: 10px;
       height: 10vh;
+      @media (max-width: 1024px) {
+        bottom: auto;
+        top: 15px;
+        height: 50px;
+      }
     }
-    .please{
+    .please {
       border-radius: 50%;
       height: 25vh;
       margin-top: 30px;
+      @media (max-width: 1024px) {
+        margin-top: 10px;
+      }
     }
     .contact {
       position: relative;
@@ -76,16 +94,31 @@ body {
       width: 40vw;
       min-width: 40vw;
       will-change: scale;
+      @media (max-width: 1024px) {
+        width: 85vw;
+      }
+      @media (max-width: 600px) {
+        width: 100vw;
+        padding: 30px;
+        margin-bottom: 30px;
+      }
       h2 {
         font-family: "Amatic SC", cursive;
         margin-bottom: 40px;
         margin-top: 15px;
         font-size: 2.5rem;
+        @media (max-width: 600px) {
+          font-size: 2rem;
+        }
       }
       p {
         font-size: 1.2rem;
         margin-bottom: 15px;
         text-align: center;
+        @media (max-width: 600px) {
+          font-size: 1rem;
+          font-weight: 300;
+        }
       }
       .social {
         position: relative;
@@ -96,9 +129,17 @@ body {
           justify-content: center;
           flex-direction: column;
           margin: 10px 20px 30px 20px;
+          @media (max-width: 600px) {
+            margin: 0px 20px 30px 20px;
+            font-weight: 300;
+          }
           svg {
             width: 25px;
             height: 25px;
+            @media (max-width: 600px) {
+              width: 20px;
+              height: 20px;
+            }
           }
         }
       }
@@ -115,6 +156,11 @@ body {
         writing-mode: horizontal-tb;
         height: auto;
         width: 100%;
+        bottom: 24px;
+        right: auto;
+      }
+      @media (max-width: 600px) {
+        font-size: 0.9rem;
       }
     }
     .close {
@@ -138,12 +184,23 @@ body {
     width: 100%;
     height: 100%;
     background: bisque;
+    @media (max-width: 1024px) {
+      padding: 20px 10px 80px 10px;
+    }
     &Cats {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       grid-template-rows: 1fr 1fr;
       height: 100%;
       width: 100%;
+      @media (max-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 350px);
+      }
+      @media (max-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 250px);
+      }
       .item {
         position: relative;
         display: flex;
@@ -153,6 +210,9 @@ body {
         border-radius: 100px;
         margin: 40px 15px;
         will-change: translate3d;
+        @media (max-width: 600px) {
+          margin: 25px 8px;
+        }
         img {
           position: absolute;
           width: 100%;

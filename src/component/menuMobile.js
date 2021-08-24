@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { useSpring, animated } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
+import useWindowDimensions from '../hooks/useWindowDimensions'
 import { OffsetContect } from './context'
 import { IoClose, IoLogoVk, IoLogoInstagram } from "react-icons/io5";
 
@@ -9,8 +10,8 @@ import catGif from '../images/cat.gif'
 
 function MenuMobile() {
   const [open, setOpen] = useState(false)
-  var height = window.innerHeight;
-  const [{ y }, api] = useSpring(() => ({ y: 50 }))
+  const { width, height } = useWindowDimensions();
+  const [{ y }, api] = useSpring(() => ({ y: 60 }))
 
   const { offset, setOffset } = useContext(OffsetContect);
 
@@ -19,16 +20,15 @@ function MenuMobile() {
   })
 
   const contact = useSpring({
-    to: {opacity: offset > height / 4 ? 1 : 0, scale: offset > 300 ? 1 : .8}
+    to: { opacity: offset > height / 3 ? 1 : 0, scale: offset > height / 3 ? 1 : .8 }
   })
 
-
   const bind = useGesture({
-    onDrag: ({ movement: [my] }) => api.start({ y: !open && my < height - (height / 4) ? (my + 60) : null },
-      !open && (my < height - (height / 4)) ? setOffset(my) : null
+    onDrag: ({ movement: [mx, my] }) => api.start({ y: !open && my < height - (height / 4) ? -(my - 60) : null },
+      !open && (my < height - (height / 4)) ? setOffset(-my) : null
     ),
-    onDragEnd: ({ movement: [my] }) => api.start({ y: !open ? ((my > height / 3) ? height - (height / 3) : 50) : null },
-      my > height / 3 ? setOpen(!open) : open ? null : setOffset(0)
+    onDragEnd: ({ movement: [mx, my] }) => api.start({ y: !open ? ((-my > height / 3) ? height : 50) : null },
+      -my > height / 3 ? setOpen(!open) : open ? null : setOffset(0)
     )
   })
 
@@ -40,7 +40,7 @@ function MenuMobile() {
 
   return (
     <animated.div className="menu" {...bind()} style={{ height: y }}>
-      <div className="menuHint" style={{right: open ? 32 : 15}}>{open ? 'Ах ты любопытный котофей' : 'Лапкой тяни'}</div>
+      <div className="menuHint" style={{ right: open && width > 1024 ? 32 : null }}>{open ? 'Ах ты любопытный котофей' : 'Лапкой тяни'}</div>
       <animated.img className="fight" style={contact} src={catFight} alt="Моя котячья фотка" />
       <animated.div style={contact} className="contact">
         <h2>Ладно, раз уж зашел</h2>
@@ -50,7 +50,7 @@ function MenuMobile() {
           <a href="https://www.instagram.com/shmidt__art/" target="_blank" rel="noreferrer"><IoLogoInstagram />Котограм</a>
           <a href="https://vk.com/kateshmidt1" target="_blank" rel="noreferrer"><IoLogoVk />ВКотофейне</a>
         </div>
-        <p>А если у тебя есть пирожочки маленькие, записывай!!!!<br/>Порисуем чего нибудь!!</p>
+        <p>А если у тебя есть пирожочки маленькие, записывай!!!!<br />Порисуем чего нибудь!!</p>
         <img className="please" src={catGif} alt="Запиши пирожочка!" />
       </animated.div>
       {open && (
