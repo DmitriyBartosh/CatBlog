@@ -11,6 +11,19 @@ import cat10 from '../images/cats/10.jpg'
 import cat11 from '../images/cats/11.jpg'
 import cat12 from '../images/cats/12.jpg'
 
+import gifCat1 from '../images/gif/cat1.gif'
+import gifCat2 from '../images/gif/cat2.gif'
+import gifCat3 from '../images/gif/cat3.gif'
+import gifCat4 from '../images/gif/cat4.gif'
+import gifCat5 from '../images/gif/cat5.gif'
+import gifCat6 from '../images/gif/cat6.gif'
+import gifCat7 from '../images/gif/cat7.gif'
+import gifCat8 from '../images/gif/cat8.gif'
+import gifCat9 from '../images/gif/cat9.gif'
+import gifCat10 from '../images/gif/cat10.gif'
+import gifCat11 from '../images/gif/cat11.gif'
+import gifCat12 from '../images/gif/cat12.gif'
+
 export const cats = [
   {
     name: 'Чет вниз засмотрелась',
@@ -60,4 +73,55 @@ export const cats = [
     name: 'Делаю важный вид',
     image: cat12
   }
+]
+
+export const catsGif = [
+  {
+    name: 'Какую то вкусняху принесли',
+    image: gifCat1
+  },
+  {
+    name: 'Лапками жмакаю',
+    image: gifCat2
+  },
+  {
+    name: 'Предвижу опасность',
+    image: gifCat3
+  },
+  {
+    name: 'Опять жмакаю лапками!',
+    image: gifCat4
+  },
+  {
+    name: 'Учусь драться',
+    image: gifCat5
+  },
+  {
+    name: 'Танцую',
+    image: gifCat6
+  },
+  {
+    name: 'Ложусь спать',
+    image: gifCat7
+  },
+  {
+    name: 'Играюсь с кожаным',
+    image: gifCat8
+  },
+  {
+    name: 'Немножко шалостей',
+    image: gifCat9
+  },
+  {
+    name: 'Играю с фантиком',
+    image: gifCat10
+  },
+  {
+    name: 'Бегу наводить суету',
+    image: gifCat11
+  },
+  {
+    name: 'Под конец дня подустала',
+    image: gifCat12
+  },
 ]

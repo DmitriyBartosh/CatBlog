@@ -3,6 +3,7 @@ import { useSpring, animated } from 'react-spring'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 import { OffsetContect } from './context'
 import { cats } from './data'
+import { catsGif } from './data'
 
 function Content() {
   const { offset } = useContext(OffsetContect);
@@ -33,17 +34,33 @@ function Content() {
 
   return (
     <animated.div className="content" style={width > 1024 ? content : contentMobile}>
-      <animated.h1 style={width > 1024 ? contentTitle : contentTitleMobile}>Ну приветики!<br />это мой <span>котячий</span> блог <span>Kate.Shmidt!</span></animated.h1>
-      <div className="contentCats">
-        {cats.map((cat, index) => {
-          const { name, image } = cat;
+      <div className="container">
+        <animated.h1 style={width > 1024 ? contentTitle : contentTitleMobile}>Ну приветики!<br />это мой <span>котячий</span> блог <span>Kate.Shmidt!</span></animated.h1>
+        <div className="contentCats">
+          {cats.map((cat, index) => {
+            const { name, image } = cat;
 
-          return <animated.div className="item" style={width > 1024 ? contentItems : contentItemsMobile} key={index}>
-            <img src={image} alt={name} />
-            <p>{name}</p>
-          </animated.div>
-        })}
+            return <animated.div className="item" style={width > 1024 ? contentItems : contentItemsMobile} key={index}>
+              <img src={image} alt={name} />
+              <p>{name}</p>
+            </animated.div>
+          })}
+        </div>
       </div>
+      <div className="container">
+        <animated.h1 style={width > 1024 ? contentTitle : contentTitleMobile}>У меня и видосики тоже есть!</animated.h1>
+        <div className="contentCats">
+          {catsGif.map((cat, index) => {
+            const { name, image } = cat;
+
+            return <animated.div className="item" style={width > 1024 ? contentItems : contentItemsMobile} key={index}>
+              <img src={image} alt={name} />
+              <p>{name}</p>
+            </animated.div>
+          })}
+        </div>
+      </div>
+
     </animated.div>
   )
 }

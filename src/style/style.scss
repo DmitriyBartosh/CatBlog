@@ -37,10 +37,6 @@ body {
 .container {
   position: relative;
   width: 100%;
-  height: 100vh;
-  @media (max-width: 1024px) {
-    height: auto;
-  }
   .menu {
     position: fixed;
     left: 0;
@@ -180,7 +176,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 10px 20px 80px;
     width: 100%;
     height: 100%;
     background: bisque;
@@ -188,44 +183,60 @@ body {
     @media (max-width: 1024px) {
       padding: 20px 10px 80px 10px;
     }
-    &Cats {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: 1fr 1fr;
-      height: 100%;
+    .container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
       width: 100%;
+      height: 100vh;
+      padding: 20px 10px 20px 80px;
       @media (max-width: 1024px) {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 350px);
+        padding: 20px 10px 80px 10px;
+        height: auto;
       }
-      @media (max-width: 600px) {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, 250px);
+      h1{
+        margin: 30px auto;
       }
-      .item {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: white;
-        border-radius: 100px;
-        margin: 40px 15px;
-        will-change: translate3d;
+      .contentCats {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 1fr 1fr;
+        width: 100%;
+        height: 100%;
+        @media (max-width: 1024px) {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(4, 350px);
+        }
         @media (max-width: 600px) {
-          margin: 25px 8px;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(6, 250px);
         }
-        img {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: inherit;
-        }
-        p {
-          position: absolute;
-          bottom: -30px;
-          z-index: 10;
-          text-align: center;
+        .item {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: white;
+          border-radius: 100px;
+          margin: 40px 15px;
+          will-change: translate3d;
+          @media (max-width: 600px) {
+            margin: 25px 8px;
+          }
+          img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+          }
+          p {
+            position: absolute;
+            bottom: -30px;
+            z-index: 10;
+            text-align: center;
+          }
         }
       }
     }
