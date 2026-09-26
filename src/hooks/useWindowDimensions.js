@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { window } from 'browser-monads';
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;

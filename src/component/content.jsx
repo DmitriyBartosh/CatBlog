@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated } from '@react-spring/web'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 import { OffsetContect } from './context'
 import { cats } from './data'

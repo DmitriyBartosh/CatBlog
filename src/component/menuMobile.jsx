@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
-import { useSpring, animated } from 'react-spring'
-import { useGesture } from 'react-use-gesture'
+import { useSpring, animated } from '@react-spring/web'
+import { useGesture } from '@use-gesture/react'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 import { OffsetContect } from './context'
 import { IoClose, IoLogoVk, IoLogoInstagram } from "react-icons/io5";
